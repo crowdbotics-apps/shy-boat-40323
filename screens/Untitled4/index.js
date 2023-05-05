@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { Pressable } from "react-native";
+import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const MeetingScreen = ({
@@ -34,7 +35,9 @@ const MeetingScreen = ({
         <Text style={styles.backButton}>Back</Text>
       </TouchableOpacity>
       <Text style={styles.title}>Create Meeting</Text>
-      <View style={styles.form}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled5");
+    }}><View style={styles.form}>
         <Text style={styles.label}>Topic</Text>
         <TextInput style={styles.input} onChangeText={handleTopicChange} value={topic} placeholder="Enter topic" />
         <Text style={styles.label}>Length (minutes)</Text>
@@ -56,7 +59,7 @@ const MeetingScreen = ({
         <TouchableOpacity style={styles.createButton}>
           <Text style={styles.createButtonText}>Create Meeting</Text>
         </TouchableOpacity>
-      </View>
+      </View></Pressable>
     </View>;
 };
 
