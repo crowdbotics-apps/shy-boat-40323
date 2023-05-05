@@ -1,4 +1,4 @@
-import React from 'react';
+import { Pressable } from "react-native";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image } from 'react-native';
 const meetings = [{
   id: '1',
@@ -38,10 +38,12 @@ const MeetingScreen = ({
   const renderItem = ({
     item
   }) => <TouchableOpacity style={styles.meetingContainer}>
-      <View style={styles.meetingInfo}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled9");
+    }}><View style={styles.meetingInfo}>
         <Text style={styles.meetingTitle}>{item.title}</Text>
         <Text style={styles.meetingDateTime}>{item.date} at {item.time}</Text>
-      </View>
+      </View></Pressable>
       <View style={styles.experienceContainer}>
         <Text style={styles.experienceQuestion}>How was your experience?</Text>
         <Text style={styles.experienceAnswer}>{item.experience}</Text>
