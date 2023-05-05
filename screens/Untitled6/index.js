@@ -1,4 +1,4 @@
-import React from 'react';
+import { Pressable } from "react-native";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image } from 'react-native';
 const data = [{
   id: '1',
@@ -27,7 +27,9 @@ const ScreenComponent = ({
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
         <Text style={styles.backButtonText}>Back</Text>
       </TouchableOpacity>
-      <Text style={styles.screenTitle}>Upcoming Meetings</Text>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled7");
+    }}><Text style={styles.screenTitle}>Upcoming Meetings</Text></Pressable>
       <FlatList data={data} keyExtractor={item => item.id} renderItem={({
       item
     }) => <TouchableOpacity style={styles.meetingContainer}>
