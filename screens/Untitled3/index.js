@@ -1,3 +1,4 @@
+import { Pressable } from "react-native";
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
@@ -16,12 +17,12 @@ const MeetingScreen = () => {
   };
 
   return <View style={styles.container}>
-      <View style={styles.header}>
+      <Pressable><View style={styles.header}>
         <TouchableOpacity onPress={handlePrevStep}>
           <Text style={styles.backButton}>Back</Text>
         </TouchableOpacity>
         <Text style={styles.stepCounter}>Step {step}/3</Text>
-      </View>
+      </View></Pressable>
       {step === 1 && <View style={styles.stepContainer}>
           <Text style={styles.stepTitle}>Enter Meeting Title</Text>
           <TextInput style={styles.input} value={title} onChangeText={setTitle} placeholder="Meeting Title" />

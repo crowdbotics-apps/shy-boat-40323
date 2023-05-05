@@ -1,15 +1,19 @@
-import React from 'react';
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 const ScreenComponent = () => {
+  const navigation = useNavigation();
   return <View style={styles.container}>
-      <View style={styles.header}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled3");
+    }}><View style={styles.header}>
         <Image source={require('../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcome}>Welcome, John Doe</Text>
         <TouchableOpacity style={styles.scoreContainer} onPress={() => navigation.navigate('My Score')}>
           <Text style={styles.score}>Score: 80%</Text>
         </TouchableOpacity>
-      </View>
+      </View></Pressable>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('To-do')}>
           <Text style={styles.buttonText}>Meeting To-do's</Text>
