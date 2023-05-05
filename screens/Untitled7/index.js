@@ -41,11 +41,13 @@ const MeetingScreen = ({
       </View></Pressable>
       <FlatList data={meetings} keyExtractor={item => item.id} renderItem={({
       item
-    }) => <View style={styles.meetingContainer}>
+    }) => <Pressable onPress={() => {
+      navigation.navigate("Untitled10");
+    }}><View style={styles.meetingContainer}>
             <Text style={styles.meetingTitle}>{item.title}</Text>
             <Text style={styles.meetingTime}>{item.time}</Text>
             <Text style={styles.meetingLocation}>{item.location}</Text>
-          </View>} />
+          </View></Pressable>} />
     </View>;
 };
 
