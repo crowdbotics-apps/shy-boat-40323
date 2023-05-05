@@ -1,8 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const MeetingScreen = () => {
+  const navigation = useNavigation();
   const [step, setStep] = useState(1);
   const [title, setTitle] = useState('');
   const [purpose, setPurpose] = useState('');
@@ -17,7 +19,9 @@ const MeetingScreen = () => {
   };
 
   return <View style={styles.container}>
-      <Pressable><View style={styles.header}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled4");
+    }}><View style={styles.header}>
         <TouchableOpacity onPress={handlePrevStep}>
           <Text style={styles.backButton}>Back</Text>
         </TouchableOpacity>
