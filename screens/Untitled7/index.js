@@ -1,4 +1,4 @@
-import React from 'react';
+import { Pressable } from "react-native";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image } from 'react-native';
 const meetings = [{
   id: '1',
@@ -31,12 +31,14 @@ const MeetingScreen = ({
   navigation
 }) => {
   return <View style={styles.container}>
-      <View style={styles.header}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled8");
+    }}><View style={styles.header}>
         <Text style={styles.title}>Meetings</Text>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={require('../assets/close.png')} style={styles.closeIcon} />
         </TouchableOpacity>
-      </View>
+      </View></Pressable>
       <FlatList data={meetings} keyExtractor={item => item.id} renderItem={({
       item
     }) => <View style={styles.meetingContainer}>
