@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
+import { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const ScreenComponent = () => {
+  const navigation = useNavigation();
   const [currentStep, setCurrentStep] = useState(1);
   const [totalTime, setTotalTime] = useState(30);
 
@@ -10,10 +13,12 @@ const ScreenComponent = () => {
   };
 
   return <View style={styles.container}>
-      <View style={styles.header}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled12");
+    }}><View style={styles.header}>
         <Text style={styles.title}>Step {currentStep}</Text>
         <Text style={styles.time}>{totalTime} min</Text>
-      </View>
+      </View></Pressable>
       <View style={styles.content}>
         <Image source={require('../assets/placeholder-image.png')} style={styles.image} />
         <Text style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, sapien vel bibendum bibendum, velit sapien bibendum sapien, vel bibendum sapien velit.</Text>
