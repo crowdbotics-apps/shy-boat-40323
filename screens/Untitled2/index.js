@@ -6,7 +6,7 @@ const ScreenComponent = () => {
   const navigation = useNavigation();
   return <View style={styles.container}>
       <Pressable onPress={() => {
-      navigation.navigate("Untitled3");
+      navigation.navigate("Untitled6");
     }}><View style={styles.header}>
         <Image source={require('../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcome}>Welcome, John Doe</Text>
@@ -14,7 +14,9 @@ const ScreenComponent = () => {
           <Text style={styles.score}>Score: 80%</Text>
         </TouchableOpacity>
       </View></Pressable>
-      <View style={styles.buttonsContainer}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled3");
+    }}><View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('To-do')}>
           <Text style={styles.buttonText}>Meeting To-do's</Text>
         </TouchableOpacity>
@@ -24,7 +26,7 @@ const ScreenComponent = () => {
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Schedule Meeting')}>
           <Text style={styles.buttonText}>Schedule a Meeting</Text>
         </TouchableOpacity>
-      </View>
+      </View></Pressable>
       <View style={styles.shareContainer}>
         <Text style={styles.shareText}>Share via:</Text>
         <View style={styles.socialMediaContainer}>
