@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
+import { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const MeetingScreen = () => {
+  const navigation = useNavigation();
   const [currentStep, setCurrentStep] = useState(1);
   const [totalTime, setTotalTime] = useState(60);
   const [meetingObjective, setMeetingObjective] = useState('Discuss project progress');
@@ -11,9 +14,11 @@ const MeetingScreen = () => {
   };
 
   return <View style={styles.container}>
-      <View style={styles.header}>
+      <Pressable onPress={() => {
+      navigation.navigate("Untitled11");
+    }}><View style={styles.header}>
         <Text style={styles.headerText}>Meeting Progress</Text>
-      </View>
+      </View></Pressable>
       <View style={styles.content}>
         <View style={styles.stepContainer}>
           <Text style={styles.stepText}>Step {currentStep}</Text>
